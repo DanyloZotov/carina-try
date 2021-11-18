@@ -2,11 +2,11 @@
 <suite name="Task for mobile testing - Login Verification Test (Android)" verbose="1" parallel="methods">
     <parameter name="name" value="Danylo"/>
     <parameter name="password" value="{crypt:dgcy+aVh3mVD7T7LrBocfA==}"/>
-    <parameter name="timeout" value="5"/>
 
     <test name="Login Verification">
         <classes>
-            <class name="onboarding.LoginVerification"/>
+            <class name="onboarding.LoginVerificationTest"/>
+            <class name="onboarding.ListVerificationTest"/>
         </classes>
     </test>
 </suite>

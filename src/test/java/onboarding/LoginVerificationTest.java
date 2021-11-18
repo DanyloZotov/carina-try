@@ -9,23 +9,24 @@ import com.zebrunner.agent.core.annotation.TestLabel;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
 import onboarding.pages.common.MyWelcomePageBase;
+import onboarding.utils.TimeConstants;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class LoginVerification implements IAbstractTest, IMobileUtils {
+public class LoginVerificationTest implements IAbstractTest, IMobileUtils {
 
     @Test
     @MethodOwner(owner = "Dan")
     @TestLabel(name = "feature", value = {"mobile", "regression"})
-    @Parameters({"timeout", "name", "password"})
-    public void TestLoginFeature(long timeout, String name, String password){
+    @Parameters({"name", "password"})
+    public void testLoginFeature(String name, String password){
         SoftAssert softAssert = new SoftAssert();
         MyWelcomePageBase welcomePage = initPage(getDriver(), MyWelcomePageBase.class);
-        Assert.assertTrue(welcomePage.isPageOpened(timeout), "Welcome Page isn't opened");
+        Assert.assertTrue(welcomePage.isPageOpened(TimeConstants.WAIT_INTERVAL), "Welcome Page isn't opened");
         MyLoginPageBase loginPage = welcomePage.clickNextBtn();
-        Assert.assertTrue(loginPage.isPageOpened(timeout), "Login Page isn't opened");
+        Assert.assertTrue(loginPage.isPageOpened(TimeConstants.WAIT_INTERVAL), "Login Page isn't opened");
         softAssert.assertTrue(loginPage.isLoginBtnPresent(), "Login button isn't present");
         softAssert.assertTrue(loginPage.isNameFieldPresent(), "Name field isn't present");
         softAssert.assertTrue(loginPage.isPasswordFieldPresent(), "Password field isn't present");
@@ -52,7 +53,7 @@ public class LoginVerification implements IAbstractTest, IMobileUtils {
                 "Agree Checkbox isn't checked when it should be");
         softAssert.assertAll();
         MyCarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
-        Assert.assertTrue(carinaDescriptionPage.isPageOpened(timeout),
+        Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.WAIT_INTERVAL),
                 "Carina description page isn't opened");
     }
 
