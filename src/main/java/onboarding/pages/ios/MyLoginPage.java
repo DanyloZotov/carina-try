@@ -1,5 +1,6 @@
 package onboarding.pages.ios;
 
+import com.qaprosoft.carina.core.foundation.exception.NotImplementedException;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
@@ -9,104 +10,97 @@ import org.openqa.selenium.WebDriver;
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = MyLoginPageBase.class)
 public class MyLoginPage extends MyLoginPageBase {
 
-    private static final String THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID = "This method is not yet implemented for iOS";
-
     public MyLoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public boolean isLoginBtnActive(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isLoginBtnPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isLoginBtnPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isRadioMaleBtnPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isRadioMaleBtnPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isRadioFemaleBtnPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isRadioFemaleBtnPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isAgreeCheckboxPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isAgreeCheckboxPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isNameFieldPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isNameFieldPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
-    }
-
-    @Override
-    public boolean isPasswordFieldPresent(long timeout) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isPasswordFieldPresent() {
+        throw new NotImplementedException();
     }
 
     @Override
     public boolean isRadioMaleBtnChecked() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public boolean isRadioFemaleBtnChecked() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public boolean isAgreeCheckboxChecked() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public void typeName(String name) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public void typePassword(String password) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isNameTyped(String name) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isNameTypedCorrectly(String name) {
+        throw new NotImplementedException();
     }
 
     @Override
-    public boolean isPasswordTyped(String password) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    public boolean isPasswordTypedCorrectly(String password) {
+        throw new NotImplementedException();
     }
 
     @Override
     public void chooseMaleRadioBtn() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public void checkAgreeForTerms() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public MyCarinaDescriptionPageBase clickLoginBtn() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public boolean isLoginBtnActive() {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 
     @Override
     public MyCarinaDescriptionPageBase login(String name, String password) {
-        throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+        throw new NotImplementedException();
     }
 }

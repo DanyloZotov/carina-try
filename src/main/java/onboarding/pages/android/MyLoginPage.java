@@ -8,6 +8,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
 import onboarding.utils.TimeConstants;
+import org.apache.commons.lang.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
