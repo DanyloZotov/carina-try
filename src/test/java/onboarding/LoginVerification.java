@@ -22,8 +22,6 @@ public class LoginVerification implements IAbstractTest, IMobileUtils {
     @Parameters({"timeout", "name", "password"})
     public void TestLoginFeature(long timeout, String name, String password){
         SoftAssert softAssert = new SoftAssert();
-        CryptoTool cryptoTool = new CryptoTool();
-        password = cryptoTool.decrypt(password);
         MyWelcomePageBase welcomePage = initPage(getDriver(), MyWelcomePageBase.class);
         Assert.assertTrue(welcomePage.isPageOpened(timeout), "Welcome Page isn't opened");
         MyLoginPageBase loginPage = welcomePage.clickNextBtn();
@@ -44,8 +42,8 @@ public class LoginVerification implements IAbstractTest, IMobileUtils {
         softAssert.assertAll();
         loginPage.typeName(name);
         loginPage.typePassword(password);
-        softAssert.assertTrue(loginPage.isNameTypedCorrectly(name), "Name isn't typed correctly");
-        softAssert.assertTrue(loginPage.isPasswordTypedCorrectly(password), "Password isn't typed correctly");
+        softAssert.assertTrue(loginPage.isNameTyped(), "Name isn't typed correctly");
+        softAssert.assertTrue(loginPage.isPasswordTyped(), "Password isn't typed correctly");
         loginPage.chooseMaleRadioBtn();
         softAssert.assertTrue(loginPage.isRadioMaleBtnChecked(),
                 "Radio male isn't checked when it should be");
@@ -57,5 +55,6 @@ public class LoginVerification implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(timeout),
                 "Carina description page isn't opened");
     }
+
 
 }

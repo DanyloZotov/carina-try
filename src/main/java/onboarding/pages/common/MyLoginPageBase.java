@@ -33,9 +33,9 @@ public abstract class MyLoginPageBase extends AbstractPage {
 
     public abstract void typePassword(String password);
 
-    public abstract boolean isNameTypedCorrectly(String name);
+    public abstract boolean isNameTyped();
 
-    public abstract boolean isPasswordTypedCorrectly(String password);
+    public abstract boolean isPasswordTyped();
 
     public abstract void chooseMaleRadioBtn();
 

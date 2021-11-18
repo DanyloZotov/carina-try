@@ -7,6 +7,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
+import onboarding.utils.CarinaCrypto;
 import onboarding.utils.TimeConstants;
 import org.apache.commons.lang.NotImplementedException;
 import org.openqa.selenium.WebDriver;
@@ -98,13 +99,13 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
-    public boolean isNameTypedCorrectly(String name){
-        return nameField.getText().equals(name);
+    public boolean isNameTyped(){
+        return !nameField.getText().equals("");
     }
 
     @Override
-    public boolean isPasswordTypedCorrectly(String password){
-        return passwordField.getText().equals(password);
+    public boolean isPasswordTyped(){
+        return !passwordField.getText().equals("");
     }
 
     @Override

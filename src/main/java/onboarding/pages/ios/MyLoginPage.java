@@ -70,12 +70,12 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
-    public boolean isNameTypedCorrectly(String name) {
+    public boolean isNameTyped() {
         throw new NotImplementedException();
     }
 
     @Override
-    public boolean isPasswordTypedCorrectly(String password) {
+    public boolean isPasswordTyped() {
         throw new NotImplementedException();
     }
 
