@@ -1,18 +1,12 @@
 package onboarding.pages.android;
 
-import com.mongodb.util.TimeConstants;
-import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import onboarding.pages.common.MyLoginPageBase;
 import onboarding.pages.common.MyWelcomePageBase;
+import onboarding.utils.TimeConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Properties;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MyWelcomePageBase.class)
 public class MyWelcomePage extends MyWelcomePageBase {
@@ -29,7 +23,7 @@ public class MyWelcomePage extends MyWelcomePageBase {
 
     @Override
     public boolean isPageOpened() {
-        return isPageOpened(20);
+        return isPageOpened(TimeConstants.EXPLICIT_TIMEOUT);
     }
 
     @Override
@@ -38,7 +32,7 @@ public class MyWelcomePage extends MyWelcomePageBase {
     }
 
     public MyLoginPageBase clickNextBtn() {
-        nextButton.click();
+        nextButton.click(TimeConstants.WAIT_INTERVAL);
         return initPage(getDriver(), MyLoginPageBase.class);
     }
 }

@@ -7,6 +7,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
+import onboarding.utils.TimeConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -37,7 +38,7 @@ public class MyLoginPage extends MyLoginPageBase {
 
     @Override
     public boolean isPageOpened() {
-        return isPageOpened(20);
+        return isPageOpened(TimeConstants.EXPLICIT_TIMEOUT);
     }
 
     @Override
@@ -46,38 +47,38 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
-    public boolean isLoginBtnActive(long timeout) {
-        return loginButton.isClickable(timeout);
+    public boolean isLoginBtnActive() {
+        return loginButton.isClickable(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isLoginBtnPresent(long timeout){
-        return loginButton.isElementPresent(timeout);
+    public boolean isLoginBtnPresent(){
+        return loginButton.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isRadioMaleBtnPresent(long timeout) {
-        return radioMale.isElementPresent(timeout);
+    public boolean isRadioMaleBtnPresent() {
+        return radioMale.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isRadioFemaleBtnPresent(long timeout) {
-        return radioFemale.isElementPresent(timeout);
+    public boolean isRadioFemaleBtnPresent() {
+        return radioFemale.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isAgreeCheckboxPresent(long timeout) {
-        return agreeForTermsCheckbox.isElementPresent(timeout);
+    public boolean isAgreeCheckboxPresent() {
+        return agreeForTermsCheckbox.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isNameFieldPresent(long timeout) {
-        return nameField.isElementPresent(timeout);
+    public boolean isNameFieldPresent() {
+        return nameField.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
-    public boolean isPasswordFieldPresent(long timeout) {
-        return passwordField.isElementPresent(timeout);
+    public boolean isPasswordFieldPresent() {
+        return passwordField.isElementPresent(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
@@ -96,12 +97,12 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
-    public boolean isNameTyped(String name){
+    public boolean isNameTypedCorrectly(String name){
         return nameField.getText().equals(name);
     }
 
     @Override
-    public boolean isPasswordTyped(String password){
+    public boolean isPasswordTypedCorrectly(String password){
         return passwordField.getText().equals(password);
     }
 
@@ -117,32 +118,27 @@ public class MyLoginPage extends MyLoginPageBase {
 
     @Override
     public void chooseMaleRadioBtn() {
-        radioMale.click();
+        radioMale.click(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
     public void checkAgreeForTerms() {
-        agreeForTermsCheckbox.click();
+        agreeForTermsCheckbox.click(TimeConstants.WAIT_INTERVAL);
     }
 
     @Override
     public MyCarinaDescriptionPageBase clickLoginBtn() {
-        loginButton.click();
+        loginButton.click(TimeConstants.WAIT_INTERVAL);
         return initPage(getDriver(), MyCarinaDescriptionPageBase.class);
-    }
-
-    @Override
-    public boolean isLoginBtnActive() {
-        return false;
     }
 
     @Override
     public MyCarinaDescriptionPageBase login(String name, String password) {
         nameField.type(name);
         passwordField.type(password);
-        radioMale.click();
-        agreeForTermsCheckbox.click();
-        loginButton.click();
+        radioMale.click(TimeConstants.WAIT_INTERVAL);
+        agreeForTermsCheckbox.click(TimeConstants.WAIT_INTERVAL);
+        loginButton.click(TimeConstants.WAIT_INTERVAL);
         return initPage(getDriver(), MyCarinaDescriptionPageBase.class);
     }
 

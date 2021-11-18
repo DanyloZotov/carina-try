@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
+import onboarding.utils.TimeConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,7 +24,7 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
 
     @Override
     public boolean isPageOpened() {
-        return isPageOpened(20);
+        return isPageOpened(TimeConstants.EXPLICIT_TIMEOUT);
     }
 
     @Override

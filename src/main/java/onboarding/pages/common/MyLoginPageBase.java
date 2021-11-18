@@ -1,7 +1,6 @@
 package onboarding.pages.common;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import org.openqa.selenium.WebDriver;
 
 public abstract class MyLoginPageBase extends AbstractPage {
@@ -10,19 +9,19 @@ public abstract class MyLoginPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract boolean isLoginBtnActive(long timeout);
+    public abstract boolean isLoginBtnActive();
 
-    public abstract boolean isLoginBtnPresent(long timeout);
+    public abstract boolean isLoginBtnPresent();
 
-    public abstract boolean isRadioMaleBtnPresent(long timeout);
+    public abstract boolean isRadioMaleBtnPresent();
 
-    public abstract boolean isRadioFemaleBtnPresent(long timeout);
+    public abstract boolean isRadioFemaleBtnPresent();
 
-    public abstract boolean isAgreeCheckboxPresent(long timeout);
+    public abstract boolean isAgreeCheckboxPresent();
 
-    public abstract boolean isNameFieldPresent(long timeout);
+    public abstract boolean isNameFieldPresent();
 
-    public abstract boolean isPasswordFieldPresent(long timeout);
+    public abstract boolean isPasswordFieldPresent();
 
     public abstract boolean isRadioMaleBtnChecked();
 
@@ -34,17 +33,15 @@ public abstract class MyLoginPageBase extends AbstractPage {
 
     public abstract void typePassword(String password);
 
-    public abstract boolean isNameTyped(String name);
+    public abstract boolean isNameTypedCorrectly(String name);
 
-    public abstract boolean isPasswordTyped(String password);
+    public abstract boolean isPasswordTypedCorrectly(String password);
 
     public abstract void chooseMaleRadioBtn();
 
     public abstract void checkAgreeForTerms();
 
     public abstract MyCarinaDescriptionPageBase clickLoginBtn();
-
-    public abstract boolean isLoginBtnActive();
 
     public abstract MyCarinaDescriptionPageBase login(String name, String password);
 }
