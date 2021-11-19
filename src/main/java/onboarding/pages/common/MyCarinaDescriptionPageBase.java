@@ -12,6 +12,9 @@ public abstract class MyCarinaDescriptionPageBase extends AbstractPage {
         super(driver);
     }
 
+    public abstract void openMenu();
+
     public abstract List<MenuItem> getMenuItems();
+    public abstract String getMenuItemNameByOrder(int order);
 
 }

@@ -17,7 +17,17 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     }
 
     @Override
+    public void openMenu(){ throw new NotImplementedException(); }
+
+    @Override
     public List<MenuItem> getMenuItems(){
         throw new NotImplementedException();
     }
+
+    @Override
+    public String getMenuItemNameByOrder(int order){
+        throw new NotImplementedException();
+    }
+
+
 }

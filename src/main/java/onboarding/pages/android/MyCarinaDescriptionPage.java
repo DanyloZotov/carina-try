@@ -41,14 +41,23 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     }
 
     @Override
-    public List<MenuItem> getMenuItems(){
+    public void openMenu(){
         leftMenu.click(TimeConstants.WAIT_INTERVAL);
+    }
+
+    @Override
+    public List<MenuItem> getMenuItems(){
         List<MenuItem> menuItems = new ArrayList<>();
         for(ExtendedWebElement element:leftMenuElements){
             MenuItem item = new MenuItem(element.getText());
             menuItems.add(item);
         }
         return menuItems;
+    }
+
+    @Override
+    public String getMenuItemNameByOrder(int order){
+        return leftMenuElements.get(order).getText();
     }
 
 }
