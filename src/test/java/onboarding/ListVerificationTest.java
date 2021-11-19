@@ -3,7 +3,6 @@ package onboarding;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import onboarding.gui.components.compare.MenuItem;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
@@ -17,7 +16,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class ListVerificationTest implements IAbstractTest, IMobileUtils {
+public class ListVerificationTest extends BaseTest {
 
     @Test
     @MethodOwner(owner = "Dan")
@@ -33,12 +32,12 @@ public class ListVerificationTest implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.WAIT_INTERVAL));
         List<MenuItem> menuItems = carinaDescriptionPage.getMenuItems();
         for(MenuItem.MenuItemTypes type:MenuItem.MenuItemTypes.values()){
-            softAssert.assertEquals(menuItems.get(type.ordinal()).getType(), type); //explanation: I am not sure if such
-        }                                                                           //usage of enums is even legal, cause
-        softAssert.assertAll();                                                     //for test to pass, all elements should
-    }                                                                               //be in the same order as they are in
-                                                                                    //menu. I can rearrange this test to
-}                                                                                   //check just th values of each menu
-                                                                                    //item one by one, but then it will
-                                                                                    //be done manually, without iteration
-                                                                                    //by enum values
+            softAssert.assertEquals(menuItems.get(type.ordinal()).getType(), type);
+        }
+        softAssert.assertAll();
+    }
+
+    public void anotherCarinaLeftMenuTest(){
+
+    }
+}

@@ -124,6 +124,9 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
+    public void chooseFemaleRadioBtn(){ radioFemale.click(TimeConstants.WAIT_INTERVAL); }
+
+    @Override
     public void checkAgreeForTerms() {
         agreeForTermsCheckbox.click(TimeConstants.WAIT_INTERVAL);
     }

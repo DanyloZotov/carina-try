@@ -15,13 +15,15 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class LoginVerificationTest implements IAbstractTest, IMobileUtils {
+public class LoginVerificationTest extends BaseTest {
+
+    private static String NAME = "Danylo";
+    private static String PASSWORD = "{crypt:dgcy+aVh3mVD7T7LrBocfA==}";
 
     @Test
     @MethodOwner(owner = "Dan")
     @TestLabel(name = "feature", value = {"mobile", "regression"})
-    @Parameters({"name", "password"})
-    public void testLoginFeature(String name, String password){
+    public void testLoginFeature(){
         SoftAssert softAssert = new SoftAssert();
         MyWelcomePageBase welcomePage = initPage(getDriver(), MyWelcomePageBase.class);
         Assert.assertTrue(welcomePage.isPageOpened(TimeConstants.WAIT_INTERVAL), "Welcome Page isn't opened");
@@ -41,8 +43,8 @@ public class LoginVerificationTest implements IAbstractTest, IMobileUtils {
         softAssert.assertFalse(loginPage.isAgreeCheckboxChecked(),
                 "Agree Checkbox is checked when it shouldn't be");
         softAssert.assertAll();
-        loginPage.typeName(name);
-        loginPage.typePassword(password);
+        loginPage.typeName(NAME);
+        loginPage.typePassword(PASSWORD);
         softAssert.assertTrue(loginPage.isNameTyped(), "Name isn't typed correctly");
         softAssert.assertTrue(loginPage.isPasswordTyped(), "Password isn't typed correctly");
         loginPage.chooseMaleRadioBtn();
@@ -57,5 +59,31 @@ public class LoginVerificationTest implements IAbstractTest, IMobileUtils {
                 "Carina description page isn't opened");
     }
 
+    @Test
+    @MethodOwner(owner = "Dan")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
+    public void loginServiceVerification(){
+        MyWelcomePageBase welcomePage = initPage(getDriver(), MyWelcomePageBase.class);
+        Assert.assertTrue(welcomePage.isPageOpened(TimeConstants.WAIT_INTERVAL), "Welcome Page isn't opened");
+        welcomePage.clickNextBtn();
+        MyCarinaDescriptionPageBase carinaDescriptionPage = loginService.login();
+        Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.WAIT_INTERVAL),
+                "Carina description page isn't opened (first login)");
+        MyLoginPageBase loginPage = loginService.logout();
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page isn't opened (first logout)");
+        loginService.clearFields();
+        carinaDescriptionPage = loginService.login(NAME, PASSWORD);
+        Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.WAIT_INTERVAL),
+                "Carina description page isn't opened (second login)");
+        loginPage = loginService.logout();
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page isn't opened (second logout)");
+        loginService.clearFields();
+        carinaDescriptionPage = loginService.login(users.get(0));
+        Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.WAIT_INTERVAL),
+                "Carina description page isn't opened (third login)");
+        loginPage = loginService.logout();
+        Assert.assertTrue(loginPage.isPageOpened(), "Login page isn't opened (third logout)");
+        loginService.clearFields();
+    }
 
 }

@@ -20,7 +20,7 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
 
     public static final Logger LOGGER = LogManager.getLogger(MyCarinaDescriptionPage.class);
 
-    @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']")
     private ExtendedWebElement leftMenu;
 
     @FindBy(id="design_menu_item_text")
