@@ -42,7 +42,7 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
 
     @Override
     public void openMenu(){
-        leftMenu.click(TimeConstants.WAIT_INTERVAL);
+        leftMenu.click(TimeConstants.ONE_SECOND);
     }
 
     @Override
@@ -56,8 +56,8 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     }
 
     @Override
-    public String getMenuItemNameByOrder(int order){
-        return leftMenuElements.get(order).getText();
+    public String getMenuItemNameByOrder(int index){
+        return leftMenuElements.get(index).getText();
     }
 
 }

@@ -29,14 +29,14 @@ public class ListVerificationTest extends BaseTest {
     @Test
     @MethodOwner(owner = "Dan")
     @TestLabel(name = "feature", value = {"mobile", "regression"})
-    @Parameters({"name", "password"})
-    public void carinaLeftMenuTest(String name, String password){
+    public void carinaLeftMenuTest(){
         SoftAssert softAssert = new SoftAssert();
         MyCarinaDescriptionPageBase carinaDescriptionPage = initPage(getDriver(), MyCarinaDescriptionPageBase.class);
         carinaDescriptionPage.openMenu();
         List<MenuItem> menuItems = carinaDescriptionPage.getMenuItems();
         for(MenuItem.MenuItemTypes type:MenuItem.MenuItemTypes.values()){
-            softAssert.assertEquals(menuItems.get(type.ordinal()).getType(), type);
+            softAssert.assertEquals(menuItems.get(type.ordinal()).getType(), type,
+                    "Expected name of list menu don't mach actual"+type.getType());
         }
         softAssert.assertAll();
     }
@@ -47,10 +47,14 @@ public class ListVerificationTest extends BaseTest {
         carinaDescriptionPage.openMenu();
         List<MenuItem> menuItems = carinaDescriptionPage.getMenuItems();
         softAssert.assertEquals(menuItems.size(), 4);
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(0), "Web View");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(1), "Charts");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(2), "Map");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(3), "UI Elements");
+        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(0), "Web View",
+                "Item name is not Web View");
+        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(1), "Charts",
+                "Item name is not Charts");
+        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(2), "Map",
+                "Item name is not Map");
+        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(3), "UI Elements",
+                "Item name is not UI Elements");
         softAssert.assertAll();
     }
 }
