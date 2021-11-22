@@ -41,6 +41,9 @@ public class ListVerificationTest extends BaseTest {
         softAssert.assertAll();
     }
 
+    @Test
+    @MethodOwner(owner = "Dan")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
     public void anotherCarinaLeftMenuTest(){
         SoftAssert softAssert = new SoftAssert();
         MyCarinaDescriptionPageBase carinaDescriptionPage = initPage(getDriver(), MyCarinaDescriptionPageBase.class);
