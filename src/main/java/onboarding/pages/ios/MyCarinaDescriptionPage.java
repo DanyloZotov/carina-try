@@ -25,7 +25,7 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     }
 
     @Override
-    public String getMenuItemNameByOrder(int order){
+    public String getMenuItemNameByOrder(int index){
         throw new NotImplementedException();
     }
 
