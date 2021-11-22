@@ -32,7 +32,7 @@ public class MyWelcomePage extends MyWelcomePageBase {
     }
 
     public MyLoginPageBase clickNextBtn() {
-        nextButton.click(TimeConstants.WAIT_INTERVAL);
+        nextButton.click(TimeConstants.ONE_SECOND);
         return initPage(getDriver(), MyLoginPageBase.class);
     }
 }

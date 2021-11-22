@@ -39,9 +39,13 @@ public abstract class MyLoginPageBase extends AbstractPage {
 
     public abstract void chooseMaleRadioBtn();
 
+    public abstract void chooseFemaleRadioBtn();
+
     public abstract void checkAgreeForTerms();
 
     public abstract MyCarinaDescriptionPageBase clickLoginBtn();
 
     public abstract MyCarinaDescriptionPageBase login(String name, String password);
+
+
 }

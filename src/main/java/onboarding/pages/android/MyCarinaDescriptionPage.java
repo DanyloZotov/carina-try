@@ -20,7 +20,7 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
 
     public static final Logger LOGGER = LogManager.getLogger(MyCarinaDescriptionPage.class);
 
-    @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
+    @FindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']")
     private ExtendedWebElement leftMenu;
 
     @FindBy(id="design_menu_item_text")
@@ -41,14 +41,23 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     }
 
     @Override
+    public void openMenu(){
+        leftMenu.click(TimeConstants.ONE_SECOND);
+    }
+
+    @Override
     public List<MenuItem> getMenuItems(){
-        leftMenu.click(TimeConstants.WAIT_INTERVAL);
         List<MenuItem> menuItems = new ArrayList<>();
         for(ExtendedWebElement element:leftMenuElements){
             MenuItem item = new MenuItem(element.getText());
             menuItems.add(item);
         }
         return menuItems;
+    }
+
+    @Override
+    public String getMenuItemNameByOrder(int index){
+        return leftMenuElements.get(index).getText();
     }
 
 }

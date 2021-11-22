@@ -85,6 +85,11 @@ public class MyLoginPage extends MyLoginPageBase {
     }
 
     @Override
+    public void chooseFemaleRadioBtn() {
+        throw new NotImplementedException();
+    }
+
+    @Override
     public void checkAgreeForTerms() {
         throw new NotImplementedException();
     }

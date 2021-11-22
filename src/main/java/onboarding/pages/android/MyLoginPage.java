@@ -2,14 +2,9 @@ package onboarding.pages.android;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.carina.demo.mobile.gui.pages.common.LoginPageBase;
-import com.solvd.carina.demo.mobile.gui.pages.common.WelcomePageBase;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
-import onboarding.utils.CarinaCrypto;
 import onboarding.utils.TimeConstants;
-import org.apache.commons.lang.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -50,37 +45,37 @@ public class MyLoginPage extends MyLoginPageBase {
 
     @Override
     public boolean isLoginBtnActive() {
-        return loginButton.isClickable(TimeConstants.WAIT_INTERVAL);
+        return loginButton.isClickable(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isLoginBtnPresent(){
-        return loginButton.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return loginButton.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isRadioMaleBtnPresent() {
-        return radioMale.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return radioMale.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isRadioFemaleBtnPresent() {
-        return radioFemale.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return radioFemale.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isAgreeCheckboxPresent() {
-        return agreeForTermsCheckbox.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return agreeForTermsCheckbox.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isNameFieldPresent() {
-        return nameField.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return nameField.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public boolean isPasswordFieldPresent() {
-        return passwordField.isElementPresent(TimeConstants.WAIT_INTERVAL);
+        return passwordField.isElementPresent(TimeConstants.ONE_SECOND);
     }
 
     @Override
@@ -120,17 +115,20 @@ public class MyLoginPage extends MyLoginPageBase {
 
     @Override
     public void chooseMaleRadioBtn() {
-        radioMale.click(TimeConstants.WAIT_INTERVAL);
+        radioMale.click(TimeConstants.ONE_SECOND);
     }
 
     @Override
+    public void chooseFemaleRadioBtn(){ radioFemale.click(TimeConstants.ONE_SECOND); }
+
+    @Override
     public void checkAgreeForTerms() {
-        agreeForTermsCheckbox.click(TimeConstants.WAIT_INTERVAL);
+        agreeForTermsCheckbox.click(TimeConstants.ONE_SECOND);
     }
 
     @Override
     public MyCarinaDescriptionPageBase clickLoginBtn() {
-        loginButton.click(TimeConstants.WAIT_INTERVAL);
+        loginButton.click(TimeConstants.ONE_SECOND);
         return initPage(getDriver(), MyCarinaDescriptionPageBase.class);
     }
 
@@ -138,9 +136,9 @@ public class MyLoginPage extends MyLoginPageBase {
     public MyCarinaDescriptionPageBase login(String name, String password) {
         nameField.type(name);
         passwordField.type(password);
-        radioMale.click(TimeConstants.WAIT_INTERVAL);
-        agreeForTermsCheckbox.click(TimeConstants.WAIT_INTERVAL);
-        loginButton.click(TimeConstants.WAIT_INTERVAL);
+        radioMale.click(TimeConstants.ONE_SECOND);
+        agreeForTermsCheckbox.click(TimeConstants.ONE_SECOND);
+        loginButton.click(TimeConstants.ONE_SECOND);
         return initPage(getDriver(), MyCarinaDescriptionPageBase.class);
     }
 
