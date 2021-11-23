@@ -8,6 +8,7 @@ import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
 import onboarding.pages.common.MyMapPageBase;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -40,6 +41,11 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
 
     @Override
     public ExtendedWebElement getMenuElementByName(String name) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public void checkMenuElementsNames(SoftAssert softAssert) {
         throw new NotImplementedException();
     }
 

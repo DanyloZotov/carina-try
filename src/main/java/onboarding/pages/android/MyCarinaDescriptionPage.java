@@ -12,6 +12,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,18 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
         }
         assertUIObjectNotPresent();
         return null;
+    }
+
+    @Override
+    public void checkMenuElementsNames(SoftAssert softAssert) {
+        softAssert.assertEquals(getMenuItemNameByOrder(0), "Web View",
+                "Item name is not Web View");
+        softAssert.assertEquals(getMenuItemNameByOrder(1), "Charts",
+                "Item name is not Charts");
+        softAssert.assertEquals(getMenuItemNameByOrder(2), "Map",
+                "Item name is not Map");
+        softAssert.assertEquals(getMenuItemNameByOrder(3), "UI elements",
+                "Item name is not UI Elements");
     }
 
     @Override

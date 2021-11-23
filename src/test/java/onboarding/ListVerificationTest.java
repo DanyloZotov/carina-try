@@ -45,14 +45,7 @@ public class ListVerificationTest extends BaseTest {
         carinaDescriptionPage.openMenu();
         List<MenuItem> menuItems = carinaDescriptionPage.getMenuItems();
         softAssert.assertEquals(menuItems.size(), 4);
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(0), "Web View",
-                "Item name is not Web View");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(1), "Charts",
-                "Item name is not Charts");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(2), "Map",
-                "Item name is not Map");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(3), "UI elements",
-                "Item name is not UI Elements");
+        carinaDescriptionPage.checkMenuElementsNames(softAssert);
 
         softAssert.assertAll();
     }
