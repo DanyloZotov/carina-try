@@ -86,4 +86,30 @@ public class LoginVerificationTest extends BaseTest {
         softAssert.assertAll();
     }
 
+    @Test
+    @MethodOwner(owner = "Dan")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
+    public void loginWithoutAgreeingForTerms(){
+        SoftAssert softAssert = new SoftAssert();
+
+        MyWelcomePageBase welcomePage = initPage(getDriver(), MyWelcomePageBase.class);
+        Assert.assertTrue(welcomePage.isPageOpened(TimeConstants.FIVE_SECONDS), "Welcome Page isn't opened");
+        MyLoginPageBase loginPage = welcomePage.clickNextBtn();
+        Assert.assertTrue(loginPage.isPageOpened(TimeConstants.FIVE_SECONDS), "Login Page isn't opened");
+        loginPage.typeName(NAME);
+        loginPage.typePassword(PASSWORD);
+        softAssert.assertTrue(loginPage.isNameTyped(), "Name isn't typed correctly");
+        softAssert.assertTrue(loginPage.isPasswordTyped(), "Password isn't typed correctly");
+        loginPage.chooseMaleRadioBtn();
+        softAssert.assertTrue(loginPage.isRadioMaleBtnChecked(),
+                "Radio male isn't checked when it should be");
+        softAssert.assertFalse(loginPage.isAgreeCheckboxChecked(),
+                "Agree Checkbox is checked when it shouldn't be");
+        MyCarinaDescriptionPageBase carinaDescriptionPage = loginPage.clickLoginBtn();
+        Assert.assertFalse(carinaDescriptionPage.isPageOpened(TimeConstants.FIVE_SECONDS),
+                "Carina Description Page opened");
+
+        softAssert.assertAll();
+    }
+
 }
