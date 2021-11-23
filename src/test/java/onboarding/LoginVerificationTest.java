@@ -83,11 +83,6 @@ public class LoginVerificationTest extends BaseTest {
         carinaDescriptionPage = loginService.login(users.get(0));
         Assert.assertTrue(carinaDescriptionPage.isPageOpened(TimeConstants.FIVE_SECONDS),
                 "Carina description page isn't opened (third login)");
-        loginPage = loginService.logout();
-        Assert.assertTrue(loginPage.isPageOpened(), "Login page isn't opened (third logout)");
-        loginService.clearFields();
-        softAssert.assertFalse(loginPage.isAgreeCheckboxChecked(),
-                "Agree Checkbox is checked when it shouldn't be");
         softAssert.assertAll();
     }
 

@@ -6,6 +6,7 @@ import com.qaprosoft.carina.core.gui.AbstractPage;
 import onboarding.gui.components.compare.MenuItem;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
 import onboarding.pages.common.MyLoginPageBase;
+import onboarding.pages.common.MyMapPageBase;
 import onboarding.utils.TimeConstants;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -58,6 +59,23 @@ public class MyCarinaDescriptionPage extends MyCarinaDescriptionPageBase {
     @Override
     public String getMenuItemNameByOrder(int index){
         return leftMenuElements.get(index).getText();
+    }
+
+    @Override
+    public ExtendedWebElement getMenuElementByName(String name){
+        for(ExtendedWebElement menuElement:leftMenuElements){
+            if (menuElement.getText().equals(name)){
+                return menuElement;
+            }
+        }
+        assertUIObjectNotPresent();
+        return null;
+    }
+
+    @Override
+    public MyMapPageBase clickMapMenuItem() {
+        getMenuElementByName("Map").click();
+        return initPage(getDriver(), MyMapPageBase.class);
     }
 
 }

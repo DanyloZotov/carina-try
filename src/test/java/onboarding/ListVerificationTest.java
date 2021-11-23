@@ -1,17 +1,11 @@
 package onboarding;
 
-import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import onboarding.gui.components.compare.MenuItem;
 import onboarding.pages.common.MyCarinaDescriptionPageBase;
-import onboarding.pages.common.MyLoginPageBase;
 import onboarding.pages.common.MyWelcomePageBase;
-import onboarding.utils.TimeConstants;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -46,6 +40,7 @@ public class ListVerificationTest extends BaseTest {
     @TestLabel(name = "feature", value = {"mobile", "regression"})
     public void anotherCarinaLeftMenuTest(){
         SoftAssert softAssert = new SoftAssert();
+
         MyCarinaDescriptionPageBase carinaDescriptionPage = initPage(getDriver(), MyCarinaDescriptionPageBase.class);
         carinaDescriptionPage.openMenu();
         List<MenuItem> menuItems = carinaDescriptionPage.getMenuItems();
@@ -56,8 +51,9 @@ public class ListVerificationTest extends BaseTest {
                 "Item name is not Charts");
         softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(2), "Map",
                 "Item name is not Map");
-        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(3), "UI Elements",
+        softAssert.assertEquals(carinaDescriptionPage.getMenuItemNameByOrder(3), "UI elements",
                 "Item name is not UI Elements");
+
         softAssert.assertAll();
     }
 }
