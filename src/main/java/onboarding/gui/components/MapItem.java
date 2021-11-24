@@ -26,7 +26,7 @@ public class MapItem extends AbstractUIObject {
     }
 
     public boolean isMapPresent() {
-        return map.isElementPresent(TimeConstants.TWO_SECONDS);
+        return map.isPresent(TimeConstants.TWO_SECONDS);
     }
 
     public boolean isZoomInBtnPresent() {
