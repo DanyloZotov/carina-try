@@ -25,7 +25,6 @@ public class MyWelcomePage extends MyWelcomePageBase {
     public boolean isPageOpened() {
         return isPageOpened(TimeConstants.EXPLICIT_TIMEOUT);
     }
-
     @Override
     public boolean isPageOpened(long timeout) {
         return title.isElementPresent(timeout);
